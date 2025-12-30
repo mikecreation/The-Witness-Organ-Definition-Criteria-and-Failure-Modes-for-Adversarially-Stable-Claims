@@ -1,0 +1,251 @@
+\documentclass[10pt,twocolumn]{article}
+
+% --- Standard Packages (Robust) ---
+\usepackage[margin=0.75in, columnsep=0.3in, bottom=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{physics}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{parskip}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% --- Graphics & Boxes ---
+\usepackage[most]{tcolorbox}
+
+% --- Typography safety for two-column boxes ---
+\emergencystretch=2em
+
+% --- Custom Colors ---
+\definecolor{techblue}{RGB}{0, 80, 180}
+\definecolor{techcyan}{RGB}{0, 180, 220}
+\definecolor{techgray}{RGB}{70, 75, 80}
+\definecolor{softbg}{RGB}{245, 247, 250}
+
+% --- Global tcolorbox settings ---
+\tcbset{
+  enhanced jigsaw,
+  parbox=false,
+  boxrule=0.5pt,
+  arc=2pt,
+  left=6pt,
+  right=6pt,
+  top=6pt,
+  bottom=6pt,
+  boxsep=2pt,
+  before skip=8pt,
+  after skip=8pt,
+  width=\linewidth,
+  colbacktitle=white,
+  coltitle=black,
+  fonttitle=\bfseries
+}
+
+% --- Box Definitions ---
+\newtcolorbox{conceptbox}[1][]{
+  colback=techcyan!6,
+  colframe=techcyan!60!black,
+  leftrule=3pt,
+  title={#1},
+  breakable=false
+}
+
+\newtcolorbox{mathbox}[1][]{
+  colback=techblue!4,
+  colframe=techblue!70!black,
+  leftrule=3pt,
+  title={#1},
+  breakable=false,
+  fontupper=\small\raggedright
+}
+
+% --- Macros ---
+\newcommand{\ORCID}{0009-0001-9194-938X}
+\newcommand{\Worg}{\mathcal{W}}
+\newcommand{\Sig}{\Sigma}
+\newcommand{\Fail}{\mathcal{F}}
+\newcommand{\Chall}{\mathcal{A}}
+\newcommand{\kb}{k_{\mathrm{B}}}
+
+% --- Title Information ---
+\title{\bfseries\huge The Witness Organ\\
+{\Large\normalfont\color{techgray} Definition, Criteria, and Failure Modes for Adversarially Stable Claims}}
+\author{\textbf{Michael Zot}\\ ZotBot Research Initiative\\
+\small ORCID: \href{https://orcid.org/\ORCID}{\ORCID}}
+\date{December 29, 2025}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\noindent \textbf{Abstract.}
+This note introduces the \emph{Witness Organ}, a system-level mechanism that stabilizes claims under adversarial conditions.
+A claim here means a proposition about a target variable that an agent could act on, and adversarial means an allowed class of challenges intended to break the claim rather than confirm it.
+The Witness Organ is defined operationally as a composed mapping that takes a candidate claim, its supporting records, and a class of admissible challenges, and outputs either a validated claim with a quantified stability margin or a failure classification with a diagnosable mode.
+The contribution is structural and operational: it isolates the minimal sub-functions required for durable knowledge in science, engineering, law, and auditing, and supplies success predicates, lesion-style failure modes, and empirical witnesses for when verification succeeds or collapses.
+\end{abstract}
+
+
+Stable facts are not automatically trustworthy.
+Stable observers are not automatically correct.
+Agreement is not automatically robustness.
+
+A separate mechanism is required to convert candidate claims into commitments that survive contact with challenge.
+This paper treats that mechanism as an organ-level functional system.
+
+\section{Operational Definition}
+
+\begin{conceptbox}[Operational Definition]
+A Witness Organ is present when a community or system can take a candidate claim and apply an admissible class of adversarial challenges to produce a stable verdict that does not collapse under repeated probing.
+
+In this definition, admissible means challenges must follow boundary rules, boundary means the rules that specify what counts as evidence and what counts as a valid test.
+\end{conceptbox}
+
+
+\section{The Witness Organ}
+
+\subsection{Organ definition}
+
+\begin{conceptbox}[Organ Definition]
+An organ is a composed functional mapping with identifiable sub-functions that produces a specific output class and has predictable failure modes when sub-functions are removed.
+\end{conceptbox}
+
+\begin{mathbox}[Witness Organ Output]
+Let \(C\) be a candidate claim, \(R\) a supporting record set, and \(\Chall\) a class of admissible challenges.
+Define:
+\[
+\Worg:\ (C,R,\Chall)\ \mapsto\ (C^{*},\Sig,\Fail),
+\]
+where \(C^{*}\) is a surviving claim or null, \(\Sig\) is a stability margin (how much allowed challenge it tolerates), and \(\Fail\) is a failure classification when the claim collapses.
+\end{mathbox}
+
+\subsection{Functional decomposition}
+
+\begin{mathbox}[Composed Mapping]
+The Witness Organ decomposes into the same functional skeleton used by other organs:
+\[
+\boxed{%
+\begin{aligned}
+\Worg &= \mathrm{Stab}\circ \mathrm{Precision}\circ \mathrm{Challenge}\circ \\
+     &\quad \mathrm{Inference}\circ \mathrm{Boundary}
+\end{aligned}}
+\]
+\smallskip
+
+\textbf{Boundary} defines admissible evidence and procedures.\par
+\textbf{Inference} updates claims given evidence.\par
+\textbf{Challenge} generates adversarial tests.\par
+\textbf{Precision} governs confidence updates.\par
+\textbf{Stab} preserves validated commitments across time and turnover.
+\end{mathbox}
+
+
+\section{Sub-functions and their operational meaning}
+
+\subsection{Boundary}
+
+Boundary is the rule-set that specifies what counts as evidence and what counts as a valid test.
+Boundary includes protocol definition, admissible inputs, and provenance rules, where provenance means traceable origin and integrity of records.
+
+\subsection{Inference}
+
+Inference is the update rule that maps evidence into claim revision.
+Inference includes statistical reanalysis, model comparison, and counterexample construction, where a counterexample is an instance that violates the claim under admissible conditions.
+
+\subsection{Challenge}
+
+Challenge is an adversarial procedure, meaning a deliberate attempt to break the claim, not to confirm it.
+Examples include replication attempts, red teaming (structured adversarial testing), and stress testing.
+
+\subsection{Precision}
+
+Precision is confidence governance, meaning the rule that sets how strongly new evidence moves belief.
+Precision corresponds to standards of evidence such as error tolerances, robustness margins, and burden of proof thresholds.
+
+\subsection{Stabilization}
+
+Stabilization is commitment persistence, meaning the mechanism that allows validated claims to remain usable across time, operators, and institutional turnover.
+Examples include archival records, version control, precedent, and reproducible pipelines.
+
+\section{Unified success predicate}
+
+\begin{mathbox}[Unified Witness Condition]
+A Witness Organ is functioning if and only if there exists a nontrivial stability margin \(\Sig>0\) such that for all admissible challenges \(a\in\Chall\), the claim update remains bounded:
+\[
+\exists\,\Sig>0\ \text{s.t.}\ \forall a\in\Chall,\ \Delta(C\mid a)\le \Sig,
+\]
+where \(\Delta(C\mid a)\) denotes the magnitude of claim change under challenge \(a\) under the boundary and inference rules.
+\end{mathbox}
+
+This condition is operational because it can be estimated by repeated adversarial trials within a fixed admissibility regime.
+
+\section{Lesion analysis (predictable failures)}
+
+\begin{conceptbox}[Lesion predictions]
+Boundary lesion: evidence rules degrade, so rhetoric and power can substitute for measurement.\\
+Inference lesion: challenges fail to update beliefs, so dogma persists independent of evidence.\\
+Challenge lesion: claims never face stress, so fragile claims survive and replication collapses.\\
+Precision lesion: confidence is misgoverned, producing dogmatism or relativism.\\
+Stabilization lesion: knowledge fails to accumulate and resets across time or turnover.
+\end{conceptbox}
+
+\section{Witness tests (how to test the organ itself)}
+
+\begin{mathbox}[Success witnesses]
+Independent adversaries cannot break the claim within admissible challenges.\\
+Replication holds under boundary-preserving protocols.\\
+Interventions separate competing models under controlled challenge design.\\
+Claims remain stable across time, operators, and toolchains within tolerance.
+\end{mathbox}
+
+\begin{mathbox}[Failure witnesses]
+Minor protocol perturbations flip conclusions.\\
+Confidence decouples from evidential strength.\\
+Authority substitutes for challenge.\\
+Institutional memory fails and results are rediscovered repeatedly.
+\end{mathbox}
+
+\section{Relation to Objectivity and Active Inference}
+
+Objectivity supplies stable public records.
+Active inference supplies persistent observers capable of acting and updating.
+The Witness Organ supplies adversarial filtering that converts records into stable commitments.
+
+This makes the Witness Organ a required bridge between facts and durable knowledge.
+
+\section{Scope and limitations}
+
+This is an operational framework, not a metaphysical claim about ultimate truth.
+It specifies a minimal architecture for stabilizing claims under defined adversarial regimes.
+Different domains implement different boundaries and inference rules, but the same sub-function skeleton is expected when claims must survive challenge.
+
+\section{Conclusion}
+
+A Witness Organ is the system-level mechanism that makes claims survive adversarial testing.
+It is defined by a composed mapping, a unified success predicate, lesion failures, and empirical witnesses.
+This organ completes the minimal architecture needed for durable knowledge when combined with stable records and persistent observers.
+
+% --- References ---
+\begin{thebibliography}{99}
+
+\bibitem{Popper1959}
+K. Popper, \emph{The Logic of Scientific Discovery}, Hutchinson (1959).
+
+\bibitem{Ioannidis2005}
+J. P. A. Ioannidis, \emph{Why Most Published Research Findings Are False}, PLoS Medicine \textbf{2}(8), e124 (2005).
+
+\bibitem{Nosek2015}
+Open Science Collaboration, \emph{Estimating the reproducibility of psychological science}, Science \textbf{349}(6251), aac4716 (2015).
+
+\bibitem{BegleyEllis2012}
+C. G. Begley and L. M. Ellis, \emph{Drug development: Raise standards for preclinical cancer research}, Nature \textbf{483}, 531--533 (2012).
+
+\bibitem{NISTRMF2023}
+NIST, \emph{AI Risk Management Framework (AI RMF 1.0)}, National Institute of Standards and Technology (2023).
+
+\end{thebibliography}
+
+\end{document}
